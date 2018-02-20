@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/Thistle"
+    android:orientation="vertical"
+    android:padding="15dp"
+    android:layout_margin="8dp"
+    android:elevation="25dp"
+    android:fadingEdgeLength="15dp"
+    tools:context="com.example.mishr.locally.MainActivity">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name"
+        android:hint="Name..!!"
+        android:textColor="@color/Brown"
+        android:textAlignment="center"
+        android:layout_margin="5dp"
+        android:textSize="20sp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/city"
+        android:textColor="@color/Brown"
+        android:hint="City..!!"
+        android:layout_margin="5dp"
+        android:textAlignment="center"
+        android:textSize="20sp"/>
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Contact"
+        android:hint="Contact..!!"
+        android:layout_margin="5dp"
+        android:textAlignment="center"
+        android:textColor="@color/Brown"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/email"
+        android:textColor="@color/Brown"
+        android:hint="Email..!!"
+        android:layout_margin="5dp"
+        android:textAlignment="center"
+        android:textSize="20sp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Insert this data..!!"
+        android:textAllCaps="false"
+        android:id="@+id/insert_button"
+        android:textSize="16sp"
+        android:elevation="18dp"
+        android:layout_gravity="center"
+        android:layout_margin="8dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="View..!!"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:elevation="28dp"
+        android:id="@+id/view_button"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Take me Home..!!"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:id="@+id/home_button"
+        android:layout_gravity="center"
+        android:layout_margin="4dp"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Clear..!!"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:id="@+id/clear"
+        android:layout_gravity="center"
+        />
+
+
+
+
+
+
+</LinearLayout>
