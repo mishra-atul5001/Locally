@@ -1,9 +1,15 @@
 package com.example.mishr.locally;
 
+import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.net.Uri;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,6 +19,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     EditText name,city,email,contact;
     Button insert,view,home_activity,clear;
+    String make_a_call;
 
     public static final String nameKey = "nameKey";
     public static final String cityKey = "cityKey";
@@ -50,9 +57,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
               city.setText("");
               contact.setText("");
 
+
           }
       });
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menuus,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+         if (id==R.id.rate_it) {
+            Toast.makeText(this, "Rate us On Playstore..!!", Toast.LENGTH_SHORT).show();
+        }
+            else if (id==R.id.settings) {
+            Toast.makeText(this, "Settings will be out soon..!!", Toast.LENGTH_SHORT).show();
+        }
+        else if (id==R.id.make_a_call){
+            Intent calling = new Intent(Intent.ACTION_CALL);
+             make_a_call = contact.getText().toString();
+            if (make_a_call.trim().isEmpty()){
+                calling.setData(Uri.parse("tel:7905993107"));
+            }
+            else {
+                calling.setData(Uri.parse("tel:" + make_a_call));
+            }
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE)!= PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(this, "Please Grant the Permission to make a call..!!!", Toast.LENGTH_SHORT).show();
+                requestPermission();
+            }
+            else {
+                startActivity(calling);
+            }
+            Toast.makeText(this, "Calling..Please wait..!!", Toast.LENGTH_SHORT).show();
+        }
+
+
+        return true;
+    }
+
+    private void requestPermission() {
+        ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.CALL_PHONE},1);
     }
 
     @Override

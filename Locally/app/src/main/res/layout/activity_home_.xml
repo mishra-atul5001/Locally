@@ -60,6 +60,20 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="clear"
+        android:text="Clear"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="15dp"
+        android:textAllCaps="false"
+        android:textSize="18sp"
         android:id="@+id/clear_button"/>
+  <!--  <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/number_here"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="call_at_this"
+        android:id="@+id/calling_button"/> -->
+
 </LinearLayout>
