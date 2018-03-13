@@ -1,10 +1,12 @@
 package com.example.mishr.locally;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -48,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         home_activity.setOnClickListener(this);
 
       sharedPreferences = getSharedPreferences(mainKey,MODE_PRIVATE);
-    //  callagain();   // Method used to provide some data when activity is opened 2nd Time..!!
+    //  call again();   // Method used to provide some data when activity is opened 2nd Time..!!
       clear.setOnClickListener(new View.OnClickListener() {
           @Override
           public void onClick(View view) {
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
           }
       });
+      
 
     }
 
@@ -74,11 +77,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         int id = item.getItemId();
 
          if (id==R.id.rate_it) {
-            Toast.makeText(this, "Rate us On Playstore..!!", Toast.LENGTH_SHORT).show();
+           // Toast.makeText(this, "Rate us On Playstore..!!", Toast.LENGTH_SHORT).show();
+            Intent rating = new Intent(this,RatingActivity.class);
+            startActivity(rating);
         }
             else if (id==R.id.settings) {
-            Toast.makeText(this, "Settings will be out soon..!!", Toast.LENGTH_SHORT).show();
-        }
+           // Toast.makeText(this, "Settings will be out soon..!!", Toast.LENGTH_SHORT).show();
+            Intent settings = new Intent(this,SettingsActivity.class);
+            startActivity(settings);
+         }
         else if (id==R.id.make_a_call){
             Intent calling = new Intent(Intent.ACTION_CALL);
              make_a_call = contact.getText().toString();
@@ -95,6 +102,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             else {
                 startActivity(calling);
             }
+            Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+            long[] pattern = {0,100,1000,200,3000};
+            v.vibrate(pattern,-1);
             Toast.makeText(this, "Calling..Please wait..!!", Toast.LENGTH_SHORT).show();
         }
 
@@ -122,7 +132,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 editor.putString(contactKey,CONTACT);
                 editor.commit();
                 Toast.makeText(this, "Data Inserted Successfully", Toast.LENGTH_SHORT).show();
-
+                Vibrator vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                vibrator.vibrate(500);
                 name.setText("");
                 email.setText("");
                 city.setText("");
@@ -188,9 +199,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        finish();
-    }
+   
 }

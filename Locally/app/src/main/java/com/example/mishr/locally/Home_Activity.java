@@ -1,10 +1,12 @@
 package com.example.mishr.locally;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Vibrator;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.ActionBar;
@@ -127,6 +129,9 @@ public class Home_Activity extends AppCompatActivity {
                 calling.setData(Uri.parse("tel:" + make_a_call));
             }
             startActivity(calling);
+            // Adding Vibration
+            Vibrator v = (Vibrator)getSystemService(Context.VIBRATOR_SERVICE);
+            v.vibrate(2000);
             Toast.makeText(this, "Transferred you to the Dial Pad..!!", Toast.LENGTH_SHORT).show();
         }
 

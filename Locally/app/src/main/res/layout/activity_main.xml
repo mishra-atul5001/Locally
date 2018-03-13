@@ -12,6 +12,15 @@
     android:fadingEdgeLength="15dp"
     tools:context="com.example.mishr.locally.MainActivity">
 
+    <DigitalClock
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textSize="25sp"
+        android:layout_margin="5dp"
+        android:textStyle="bold"
+        android:textColor="@color/Brown"/>
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -35,6 +44,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/Contact"
         android:hint="Contact..!!"
+        android:inputType="number"
         android:layout_margin="5dp"
         android:textAlignment="center"
         android:textColor="@color/Brown"
